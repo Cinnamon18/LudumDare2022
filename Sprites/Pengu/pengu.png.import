@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pengu.png-353055bd00da21460dcb8a9848cc4986.stex"
+path="res://.import/pengu.png-891da2a25d11ec7904805fa11a1d36e2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Pengu.png"
-dest_files=[ "res://.import/Pengu.png-353055bd00da21460dcb8a9848cc4986.stex" ]
+source_file="res://Sprites/Pengu/pengu.png"
+dest_files=[ "res://.import/pengu.png-891da2a25d11ec7904805fa11a1d36e2.stex" ]
 
 [params]
 
