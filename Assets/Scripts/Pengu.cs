@@ -94,10 +94,10 @@ public class Pengu : MonoBehaviour {
 
 	public void KillIfOnWater() {
 		if (iceMap.GetTile<TileBase>(iceMap.WorldToCell(transform.position)) == null && popUp.gameObject.activeSelf == false) {
-			anim.SetTrigger("Die");
+			anim.SetTrigger("IsPerish");
 			// Game over
 			Debug.Log("You lose :(");
-			Time.timeScale = 0;
+			// Time.timeScale = 0;
 			//SceneManager.LoadScene(0);
 			popupText.text = popupText.text + " " + timeSurvived + "s";
 			popUp.gameObject.SetActive(true);

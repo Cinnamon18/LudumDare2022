@@ -24,8 +24,6 @@ public class TileManager : MonoBehaviour {
 	[SerializeField] private TileBase iceTile;
 	[SerializeField] private TileBase shallowBorderTile;
 
-	static System.Random rnd = new System.Random();
-
 	private float meltTimer = 0;
 
 	void Start() {
@@ -66,7 +64,7 @@ public class TileManager : MonoBehaviour {
 			}
 		}
 
-		return localTilePoses[rnd.Next(localTilePoses.Count)];
+		return localTilePoses[Random.Range(0, localTilePoses.Count)];
 	}
 
 	public void SetTileIcey(Vector3Int tileCoords) {
