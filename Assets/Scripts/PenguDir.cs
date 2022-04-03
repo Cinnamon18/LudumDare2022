@@ -3,5 +3,9 @@ public enum PenguDir {
 	DOWN,
 	LEFT,
 	RIGHT,
-	IDLE
+	IDLE_UP,
+	IDLE_DOWN,
+	IDLE_LEFT,
+	IDLE_RIGHT,
+	DYING
 }

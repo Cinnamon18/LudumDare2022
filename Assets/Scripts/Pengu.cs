@@ -26,7 +26,7 @@ public class Pengu : MonoBehaviour {
 	[SerializeField] private Tilemap waterMap;
 	[SerializeField] private Tilemap collisionMap;
 
-	private PenguDir direction = PenguDir.IDLE;
+	private PenguDir direction = PenguDir.IDLE_DOWN;
 	private bool isCaryingIce = false;
 	private float timeSurvived = 0;
 
@@ -64,10 +64,25 @@ public class Pengu : MonoBehaviour {
 			anim.SetTrigger("IsDown");
 		}
 
-		if (input == Vector2.zero && direction != PenguDir.IDLE) {
-			direction = PenguDir.IDLE;
-
-			anim.SetTrigger("IsIdle");
+		if (!(right || left || up || down)) {
+			switch(direction) {
+				case PenguDir.RIGHT:
+					direction = PenguDir.IDLE_RIGHT;
+					anim.SetTrigger("IsIdleRight");
+					break;
+				case PenguDir.LEFT:
+					direction = PenguDir.IDLE_LEFT;
+					anim.SetTrigger("IsIdleLeft");
+					break;
+				case PenguDir.UP:
+					direction = PenguDir.IDLE_UP;
+					anim.SetTrigger("IsIdleUp");
+					break;
+				case PenguDir.DOWN:
+					direction = PenguDir.IDLE_DOWN;
+					anim.SetTrigger("IsIdleDown");
+					break;
+			}
 		}
 
 		if (Input.GetKeyDown(KeyCode.Space)) {
@@ -79,6 +94,7 @@ public class Pengu : MonoBehaviour {
 
 	public void KillIfOnWater() {
 		if (iceMap.GetTile<Tile>(iceMap.WorldToCell(transform.position)) == null && popUp.gameObject.activeSelf == false) {
+			anim.SetTrigger("Die");
 			// Game over
 			Debug.Log("You lose :(");
 			Time.timeScale = 0;
@@ -123,10 +139,10 @@ public class Pengu : MonoBehaviour {
 
 	private Vector3Int GetTileInFrontPos() {
 		Vector3Int tileInFront = iceMap.WorldToCell(transform.position);
-		if (direction == PenguDir.LEFT) { tileInFront += Vector3Int.left; }
-		if (direction == PenguDir.RIGHT) { tileInFront += Vector3Int.right; }
-		if (direction == PenguDir.UP) { tileInFront += Vector3Int.up; }
-		if (direction == PenguDir.DOWN || direction == PenguDir.IDLE) { tileInFront += Vector3Int.down; }
+		if (direction == PenguDir.LEFT || direction == PenguDir.IDLE_LEFT) { tileInFront += Vector3Int.left; }
+		if (direction == PenguDir.RIGHT || direction == PenguDir.IDLE_RIGHT) { tileInFront += Vector3Int.right; }
+		if (direction == PenguDir.UP || direction == PenguDir.IDLE_UP) { tileInFront += Vector3Int.up; }
+		if (direction == PenguDir.DOWN || direction == PenguDir.IDLE_DOWN) { tileInFront += Vector3Int.down; }
 
 		return tileInFront;
 	}
