@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 716848147741333550, guid: 889a2b546838cbe419f85b2679e6240f, type: 3}
+  m_Sprite: {fileID: 6535343080279072808, guid: 0260ca11794c20d4893039068c2711d3, type: 3}
   m_Color: {r: 0.96603775, g: 0.9666451, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -258,7 +258,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 8297823240975231801, guid: 889a2b546838cbe419f85b2679e6240f, type: 3}
+  m_Sprite: {fileID: 6406433436624012434, guid: 0260ca11794c20d4893039068c2711d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -324,6 +324,7 @@ MonoBehaviour:
   rigidbody: {fileID: 9084760744490320938}
   headIceBlock: {fileID: 254898814}
   iceMap: {fileID: 0}
+  borderMap: {fileID: 0}
   waterMap: {fileID: 0}
   collisionMap: {fileID: 0}
 --- !u!50 &9084760744490320938

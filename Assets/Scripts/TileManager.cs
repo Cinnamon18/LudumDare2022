@@ -12,13 +12,17 @@ public class TileManager : MonoBehaviour {
 
 	[Header("Melting")]
 	[SerializeField] private float timeForTileToCrackPerFrame = 0.2f;
-	[SerializeField] private List<Tile> meltTiles;
+	[SerializeField] private List<TileBase> meltTiles;
 
 	[Header("Tilemaps")]
 	[SerializeField] private Tilemap iceMap;
+	[SerializeField] private Tilemap borderMap;
 	[SerializeField] private Tilemap waterMap;
 	[SerializeField] private Tilemap collisionMap;
-	[SerializeField] private Tile iceTile;
+
+	[Header("Tiles")]
+	[SerializeField] private TileBase iceTile;
+	[SerializeField] private TileBase shallowBorderTile;
 
 	static System.Random rnd = new System.Random();
 
@@ -41,10 +45,13 @@ public class TileManager : MonoBehaviour {
 
 	public IEnumerator MeltTile(Vector3Int tilePos) {
 		SetTileNonIcey(tilePos);
+		// iceMap.SetTile(tilePos, null);
+		// borderMap.SetTile(tilePos, shallowBorderTile);
 		foreach (var meltTile in meltTiles) {
 			waterMap.SetTile(tilePos, meltTile);
 			yield return new WaitForSeconds(timeForTileToCrackPerFrame);
 		}
+		SetTileNonIcey(tilePos);
 
 		pengu.KillIfOnWater();
 	}
@@ -64,11 +71,17 @@ public class TileManager : MonoBehaviour {
 
 	public void SetTileIcey(Vector3Int tileCoords) {
 		iceMap.SetTile(tileCoords, iceTile);
+		borderMap.SetTile(tileCoords, null);
+		borderMap.SetTile(tileCoords + Vector3Int.down, shallowBorderTile);
 		collisionMap.SetTile(tileCoords, null);
 	}
 
 	public void SetTileNonIcey(Vector3Int tileCoords) {
 		iceMap.SetTile(tileCoords, null);
+		borderMap.SetTile(tileCoords + Vector3Int.down, null);
+		if (iceMap.GetTile(tileCoords + Vector3Int.up) != null) {
+			borderMap.SetTile(tileCoords, shallowBorderTile);
+		}
 		collisionMap.SetTile(tileCoords, iceTile);
 	}
 }

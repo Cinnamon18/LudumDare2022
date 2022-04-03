@@ -19,6 +19,7 @@ public class Pengu : MonoBehaviour {
 
 	[Header("Tilemaps")]
 	[SerializeField] private Tilemap iceMap;
+	[SerializeField] private Tilemap borderMap;
 	[SerializeField] private Tilemap waterMap;
 	[SerializeField] private Tilemap collisionMap;
 
@@ -74,7 +75,7 @@ public class Pengu : MonoBehaviour {
 	}
 
 	public void KillIfOnWater() {
-		if (iceMap.GetTile<Tile>(iceMap.WorldToCell(transform.position)) == null) {
+		if (iceMap.GetTile<TileBase>(iceMap.WorldToCell(transform.position)) == null) {
 			// Game over
 			Debug.Log("You lose :(");
 			SceneManager.LoadScene(0);
@@ -92,9 +93,7 @@ public class Pengu : MonoBehaviour {
 
 	private void TryHoistIceBlock() {
 		var tilesInFront = GetTilesInFront();
-		Debug.Log(tilesInFront[0]?.sprite);
-		if ((tilesInFront[0]?.sprite.name.Contains("ice") ?? false)
-			|| (tilesInFront[0]?.sprite.name.Contains("border") ?? false)) {
+		if (tilesInFront[0] != null) {
 			isCaryingIce = true;
 			headIceBlock.SetActive(true);
 
@@ -126,12 +125,13 @@ public class Pengu : MonoBehaviour {
 		return tileInFront;
 	}
 
-	private List<Tile> GetTilesInFront() {
+	private List<TileBase> GetTilesInFront() {
 		var tileInFrontPos = GetTileInFrontPos();
-		return new List<Tile>() {
-			iceMap.GetTile<Tile>(tileInFrontPos),
-			waterMap.GetTile<Tile>(tileInFrontPos),
-			collisionMap.GetTile<Tile>(tileInFrontPos)
+		return new List<TileBase>() {
+			iceMap.GetTile<TileBase>(tileInFrontPos),
+			borderMap.GetTile<TileBase>(tileInFrontPos),
+			waterMap.GetTile<TileBase>(tileInFrontPos),
+			collisionMap.GetTile<TileBase>(tileInFrontPos)
 		};
 	}
 }
