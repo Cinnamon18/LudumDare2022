@@ -12922,6 +12922,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1530494299933617941, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
+      propertyPath: m_RefResolutionX
+      value: 576
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530494299933617941, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
+      propertyPath: m_RefResolutionY
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 4777141660292819131, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
       propertyPath: m_Name
       value: Pengu

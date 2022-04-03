@@ -74,6 +74,9 @@ public class TileManager : MonoBehaviour {
 		borderMap.SetTile(tileCoords, null);
 		borderMap.SetTile(tileCoords + Vector3Int.down, shallowBorderTile);
 		collisionMap.SetTile(tileCoords, null);
+
+		iceMap.RefreshTile(tileCoords);
+		borderMap.RefreshTile(tileCoords);
 	}
 
 	public void SetTileNonIcey(Vector3Int tileCoords) {
@@ -83,5 +86,8 @@ public class TileManager : MonoBehaviour {
 			borderMap.SetTile(tileCoords, shallowBorderTile);
 		}
 		collisionMap.SetTile(tileCoords, iceTile);
+
+		iceMap.RefreshTile(tileCoords);
+		borderMap.RefreshTile(tileCoords);
 	}
 }
