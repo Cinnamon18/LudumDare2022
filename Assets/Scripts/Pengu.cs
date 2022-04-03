@@ -8,6 +8,7 @@ public class Pengu : MonoBehaviour {
 
 	[SerializeField] private Animator anim;
 	[SerializeField] private AudioManager audioManager;
+	[SerializeField] private TileManager tileManager;
 
 	[SerializeField] private Vector2 speed = new Vector2(3, 3);
 
@@ -19,8 +20,6 @@ public class Pengu : MonoBehaviour {
 	[SerializeField] private Tilemap iceMap;
 	[SerializeField] private Tilemap waterMap;
 	[SerializeField] private Tilemap collisionMap;
-	[SerializeField] private Tile iceTile;
-
 
 	private PenguDir direction = PenguDir.IDLE;
 	private bool isCaryingIce = false;
@@ -82,12 +81,13 @@ public class Pengu : MonoBehaviour {
 
 	private void TryHoistIceBlock() {
 		var tilesInFront = GetTilesInFront();
-		Debug.Log(tilesInFront[0].sprite);
-		if ((bool)(tilesInFront[0]?.sprite.name.Contains("ice"))) {
+		Debug.Log(tilesInFront[0]?.sprite);
+		if ((tilesInFront[0]?.sprite.name.Contains("ice") ?? false)
+			|| (tilesInFront[0]?.sprite.name.Contains("border") ?? false)) {
 			isCaryingIce = true;
 			headIceBlock.SetActive(true);
-			iceMap.SetTile(GetTileInFrontPos(), null);
-			collisionMap.SetTile(GetTileInFrontPos(), null);
+
+			tileManager.SetTileNonIcey(GetTileInFrontPos());
 		} else {
 			audioManager.PlaySound(Sound.INVALID_ACTION);
 		}
@@ -98,8 +98,8 @@ public class Pengu : MonoBehaviour {
 		if (tilesInFront[0] == null) {
 			isCaryingIce = false;
 			headIceBlock.SetActive(false);
-			iceMap.SetTile(GetTileInFrontPos(), iceTile);
-			collisionMap.SetTile(GetTileInFrontPos(), iceTile);
+			
+			tileManager.SetTileIcey(GetTileInFrontPos());
 		} else {
 			audioManager.PlaySound(Sound.INVALID_ACTION);
 		}
@@ -110,7 +110,7 @@ public class Pengu : MonoBehaviour {
 		if (direction == PenguDir.LEFT) { tileInFront += Vector3Int.left; }
 		if (direction == PenguDir.RIGHT) { tileInFront += Vector3Int.right; }
 		if (direction == PenguDir.UP) { tileInFront += Vector3Int.up; }
-		if (direction == PenguDir.DOWN) { tileInFront += Vector3Int.down; }
+		if (direction == PenguDir.DOWN || direction == PenguDir.IDLE) { tileInFront += Vector3Int.down; }
 
 		return tileInFront;
 	}
