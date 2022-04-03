@@ -93,7 +93,7 @@ public class Pengu : MonoBehaviour {
 	}
 
 	public void KillIfOnWater() {
-		if (iceMap.GetTile<Tile>(iceMap.WorldToCell(transform.position)) == null && popUp.gameObject.activeSelf == false) {
+		if (iceMap.GetTile<TileBase>(iceMap.WorldToCell(transform.position)) == null && popUp.gameObject.activeSelf == false) {
 			anim.SetTrigger("Die");
 			// Game over
 			Debug.Log("You lose :(");
