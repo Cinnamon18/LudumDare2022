@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Audio;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class Pengu : MonoBehaviour {
@@ -23,6 +24,7 @@ public class Pengu : MonoBehaviour {
 
 	private PenguDir direction = PenguDir.IDLE;
 	private bool isCaryingIce = false;
+	private float timeSurvived = 0;
 
 	void Start() {
 
@@ -68,6 +70,15 @@ public class Pengu : MonoBehaviour {
 			TryHoistOrPlaceIceBlock();
 		}
 
+		timeSurvived += Time.deltaTime;
+	}
+
+	public void KillIfOnWater() {
+		if (iceMap.GetTile<Tile>(iceMap.WorldToCell(transform.position)) == null) {
+			// Game over
+			Debug.Log("You lose :(");
+			SceneManager.LoadScene(0);
+		}
 	}
 
 	private void TryHoistOrPlaceIceBlock() {
