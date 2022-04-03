@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 65a43e72ebb88214785a236562cf7233
+labels:
+- Ice
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
