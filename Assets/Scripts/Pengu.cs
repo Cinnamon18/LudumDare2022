@@ -82,11 +82,12 @@ public class Pengu : MonoBehaviour {
 
 	private void TryHoistIceBlock() {
 		var tilesInFront = GetTilesInFront();
-		Debug.Log(tilesInFront[1].name);
-		if (tilesInFront[1].name.Contains("ice")) {
+		Debug.Log(tilesInFront[0].sprite);
+		if ((bool)(tilesInFront[0]?.sprite.name.Contains("ice"))) {
 			isCaryingIce = true;
 			headIceBlock.SetActive(true);
 			iceMap.SetTile(GetTileInFrontPos(), null);
+			collisionMap.SetTile(GetTileInFrontPos(), null);
 		} else {
 			audioManager.PlaySound(Sound.INVALID_ACTION);
 		}
@@ -94,10 +95,11 @@ public class Pengu : MonoBehaviour {
 
 	private void TryPlaceIceBlock() {
 		var tilesInFront = GetTilesInFront();
-		if (tilesInFront[1] == null) {
+		if (tilesInFront[0] == null) {
 			isCaryingIce = false;
 			headIceBlock.SetActive(false);
 			iceMap.SetTile(GetTileInFrontPos(), iceTile);
+			collisionMap.SetTile(GetTileInFrontPos(), iceTile);
 		} else {
 			audioManager.PlaySound(Sound.INVALID_ACTION);
 		}
@@ -113,8 +115,12 @@ public class Pengu : MonoBehaviour {
 		return tileInFront;
 	}
 
-	private List<TileBase> GetTilesInFront() {
+	private List<Tile> GetTilesInFront() {
 		var tileInFrontPos = GetTileInFrontPos();
-		return new List<TileBase>() { iceMap.GetTile(tileInFrontPos), waterMap.GetTile(tileInFrontPos), collisionMap.GetTile(tileInFrontPos) };
+		return new List<Tile>() {
+			iceMap.GetTile<Tile>(tileInFrontPos),
+			waterMap.GetTile<Tile>(tileInFrontPos),
+			collisionMap.GetTile<Tile>(tileInFrontPos)
+		};
 	}
 }

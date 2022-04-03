@@ -52,10 +52,10 @@ TextureImporter:
     second: left deep
   - first:
       213: 7675428646431127848
-    second: deep
+    second: deep 2
   - first:
       213: -250973973391142403
-    second: deep
+    second: deep 2
   - first:
       213: 3184173755820864227
     second: right deep
@@ -574,7 +574,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: deep
+      name: deep 2
       rect:
         serializedVersion: 2
         x: 256
