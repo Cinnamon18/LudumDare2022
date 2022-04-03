@@ -180,8 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 32
-  m_RefResolutionX: 512
-  m_RefResolutionY: 180
+  m_RefResolutionX: 576
+  m_RefResolutionY: 256
   m_UpscaleRT: 0
   m_PixelSnapping: 1
   m_CropFrameX: 0
@@ -320,6 +320,8 @@ MonoBehaviour:
   anim: {fileID: 7897909079657117050}
   audioManager: {fileID: 0}
   tileManager: {fileID: 0}
+  popUp: {fileID: 0}
+  popupText: {fileID: 0}
   speed: {x: 3, y: 3}
   rigidbody: {fileID: 9084760744490320938}
   headIceBlock: {fileID: 254898814}

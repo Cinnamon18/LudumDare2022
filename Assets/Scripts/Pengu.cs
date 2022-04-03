@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Audio;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
@@ -10,6 +11,8 @@ public class Pengu : MonoBehaviour {
 	[SerializeField] private Animator anim;
 	[SerializeField] private AudioManager audioManager;
 	[SerializeField] private TileManager tileManager;
+	[SerializeField] private Canvas popUp;
+	[SerializeField] private TMP_Text popupText;
 
 	[SerializeField] private Vector2 speed = new Vector2(3, 3);
 
@@ -75,10 +78,13 @@ public class Pengu : MonoBehaviour {
 	}
 
 	public void KillIfOnWater() {
-		if (iceMap.GetTile<TileBase>(iceMap.WorldToCell(transform.position)) == null) {
+		if (iceMap.GetTile<Tile>(iceMap.WorldToCell(transform.position)) == null && popUp.gameObject.activeSelf == false) {
 			// Game over
 			Debug.Log("You lose :(");
-			SceneManager.LoadScene(0);
+			Time.timeScale = 0;
+			//SceneManager.LoadScene(0);
+			popupText.text = popupText.text + " " + timeSurvived + "s";
+			popUp.gameObject.SetActive(true);
 		}
 	}
 
@@ -108,7 +114,7 @@ public class Pengu : MonoBehaviour {
 		if (tilesInFront[0] == null) {
 			isCaryingIce = false;
 			headIceBlock.SetActive(false);
-			
+
 			tileManager.SetTileIcey(GetTileInFrontPos());
 		} else {
 			audioManager.PlaySound(Sound.INVALID_ACTION);
