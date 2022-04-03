@@ -4,118 +4,118 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -4256447265958318482
-    second: environment tileset_0
+    second: shallow
   - first:
       213: 2063612559696925831
-    second: environment tileset_1
+    second: shallow chunks
   - first:
       213: -2691640932064209322
-    second: environment tileset_2
+    second: upper left ice
   - first:
       213: -6468510419652874938
-    second: environment tileset_3
+    second: upper ice
   - first:
       213: -6961573896579092910
-    second: environment tileset_4
+    second: upper right ice
   - first:
       213: 7244576449489714314
-    second: environment tileset_5
+    second: upper left shallow
   - first:
       213: -1609054329871410558
-    second: environment tileset_6
+    second: upper left deep
   - first:
       213: 2344804715529273407
-    second: environment tileset_7
+    second: upper right deep
   - first:
       213: 2118752683416808783
-    second: environment tileset_8
+    second: upper right shallow
   - first:
       213: 716848147741333550
-    second: environment tileset_9
+    second: isolated ice
   - first:
       213: 870406934156242379
-    second: environment tileset_10
+    second: left middle ice
   - first:
       213: 3108810195905354187
-    second: environment tileset_11
+    second: middle ice
   - first:
       213: 1930528967133754449
-    second: environment tileset_12
+    second: middle ice 2
   - first:
       213: 4883862729497506015
-    second: environment tileset_13
+    second: middle ice 3
   - first:
       213: -2343684212896925962
-    second: environment tileset_14
+    second: right ice
   - first:
       213: 3851672355506128541
-    second: environment tileset_15
+    second: left deep
   - first:
       213: 7675428646431127848
-    second: environment tileset_16
+    second: deep
   - first:
       213: -250973973391142403
-    second: environment tileset_17
+    second: deep
   - first:
       213: 3184173755820864227
-    second: environment tileset_18
+    second: right deep
   - first:
       213: -8482897393380591804
-    second: environment tileset_19
+    second: isolated shallow border
   - first:
       213: -8371934103788560017
-    second: environment tileset_20
+    second: left shallow border
   - first:
       213: -6810291186316653705
-    second: environment tileset_21
+    second: lower left ice
   - first:
       213: -5008288248825898003
-    second: environment tileset_22
+    second: lower ice
   - first:
       213: -6966841780751251823
-    second: environment tileset_23
+    second: lower right ice
   - first:
       213: 4412597991945111547
-    second: environment tileset_24
+    second: bottom right shallow border
   - first:
       213: 8529614893311489758
-    second: environment tileset_25
+    second: lower left shallow
   - first:
       213: 5841461008070830611
-    second: environment tileset_26
+    second: lower left deep
   - first:
       213: -5840751906166582055
-    second: environment tileset_27
+    second: lower right deep
   - first:
       213: -3024095313606718881
-    second: environment tileset_28
+    second: lower right shallow
   - first:
       213: -6892936266499898159
-    second: environment tileset_29
+    second: left shallow border 2
   - first:
       213: 8297823240975231801
-    second: environment tileset_30
+    second: lower shallow border
   - first:
       213: 1815911448422123367
-    second: environment tileset_31
+    second: lower right shallow border 2
   - first:
       213: -9114159243228173862
-    second: environment tileset_32
+    second: isolated deep border
   - first:
       213: -4912474699699309764
-    second: environment tileset_33
+    second: left deep border
   - first:
       213: -4823766524345117515
-    second: environment tileset_34
+    second: left deep border 2
   - first:
       213: -7889927905777167346
-    second: environment tileset_35
+    second: lower deep border
   - first:
       213: 5734449650061152695
-    second: environment tileset_36
+    second: lower right deep border 2
   - first:
       213: 3720406753298646349
-    second: environment tileset_37
+    second: lower right deep borde
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -217,7 +217,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: environment tileset_0
+      name: shallow
       rect:
         serializedVersion: 2
         x: 0
@@ -238,7 +238,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_1
+      name: shallow chunks
       rect:
         serializedVersion: 2
         x: 32
@@ -259,7 +259,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_2
+      name: upper left ice
       rect:
         serializedVersion: 2
         x: 64
@@ -280,7 +280,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_3
+      name: upper ice
       rect:
         serializedVersion: 2
         x: 96
@@ -301,7 +301,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_4
+      name: upper right ice
       rect:
         serializedVersion: 2
         x: 128
@@ -322,7 +322,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_5
+      name: upper left shallow
       rect:
         serializedVersion: 2
         x: 192
@@ -343,7 +343,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_6
+      name: upper left deep
       rect:
         serializedVersion: 2
         x: 224
@@ -364,7 +364,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_7
+      name: upper right deep
       rect:
         serializedVersion: 2
         x: 256
@@ -385,7 +385,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_8
+      name: upper right shallow
       rect:
         serializedVersion: 2
         x: 288
@@ -406,7 +406,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_9
+      name: isolated ice
       rect:
         serializedVersion: 2
         x: 0
@@ -427,7 +427,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_10
+      name: left middle ice
       rect:
         serializedVersion: 2
         x: 32
@@ -448,7 +448,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_11
+      name: middle ice
       rect:
         serializedVersion: 2
         x: 64
@@ -469,11 +469,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_12
+      name: middle ice 2
       rect:
         serializedVersion: 2
         x: 96
-        y: 96
+        y: 97
         width: 32
         height: 32
       alignment: 0
@@ -490,7 +490,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_13
+      name: middle ice 3
       rect:
         serializedVersion: 2
         x: 128
@@ -511,7 +511,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_14
+      name: right ice
       rect:
         serializedVersion: 2
         x: 160
@@ -532,7 +532,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_15
+      name: left deep
       rect:
         serializedVersion: 2
         x: 192
@@ -553,7 +553,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_16
+      name: deep
       rect:
         serializedVersion: 2
         x: 224
@@ -574,7 +574,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_17
+      name: deep
       rect:
         serializedVersion: 2
         x: 256
@@ -595,7 +595,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_18
+      name: right deep
       rect:
         serializedVersion: 2
         x: 288
@@ -616,7 +616,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_19
+      name: isolated shallow border
       rect:
         serializedVersion: 2
         x: 0
@@ -637,7 +637,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_20
+      name: left shallow border
       rect:
         serializedVersion: 2
         x: 32
@@ -658,7 +658,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_21
+      name: lower left ice
       rect:
         serializedVersion: 2
         x: 64
@@ -679,7 +679,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_22
+      name: lower ice
       rect:
         serializedVersion: 2
         x: 96
@@ -700,7 +700,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_23
+      name: lower right ice
       rect:
         serializedVersion: 2
         x: 128
@@ -721,7 +721,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_24
+      name: bottom right shallow border
       rect:
         serializedVersion: 2
         x: 160
@@ -742,7 +742,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_25
+      name: lower left shallow
       rect:
         serializedVersion: 2
         x: 192
@@ -763,7 +763,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_26
+      name: lower left deep
       rect:
         serializedVersion: 2
         x: 224
@@ -784,7 +784,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_27
+      name: lower right deep
       rect:
         serializedVersion: 2
         x: 256
@@ -805,7 +805,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_28
+      name: lower right shallow
       rect:
         serializedVersion: 2
         x: 288
@@ -826,7 +826,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_29
+      name: left shallow border 2
       rect:
         serializedVersion: 2
         x: 64
@@ -847,7 +847,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_30
+      name: lower shallow border
       rect:
         serializedVersion: 2
         x: 96
@@ -868,7 +868,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_31
+      name: lower right shallow border 2
       rect:
         serializedVersion: 2
         x: 128
@@ -889,7 +889,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_32
+      name: isolated deep border
       rect:
         serializedVersion: 2
         x: 0
@@ -910,7 +910,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_33
+      name: left deep border
       rect:
         serializedVersion: 2
         x: 32
@@ -931,7 +931,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_34
+      name: left deep border 2
       rect:
         serializedVersion: 2
         x: 64
@@ -952,7 +952,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_35
+      name: lower deep border
       rect:
         serializedVersion: 2
         x: 96
@@ -973,7 +973,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_36
+      name: lower right deep border 2
       rect:
         serializedVersion: 2
         x: 128
@@ -994,7 +994,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: environment tileset_37
+      name: lower right deep borde
       rect:
         serializedVersion: 2
         x: 160

@@ -1,15 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Pengu : MonoBehaviour {
 
-	[SerializeField] private Rigidbody2D rigidbody;
 	[SerializeField] private Animator anim;
+	[SerializeField] private AudioManager audioManager;
 
 	[SerializeField] private Vector2 speed = new Vector2(3, 3);
 
-	private PenguDirection direction = PenguDirection.IDLE;
+	[Header("My monos")]
+	[SerializeField] private Rigidbody2D rigidbody;
+	[SerializeField] private GameObject headIceBlock;
+
+	[Header("Tilemaps")]
+	[SerializeField] private Tilemap iceMap;
+	[SerializeField] private Tilemap waterMap;
+	[SerializeField] private Tilemap collisionMap;
+	[SerializeField] private Tile iceTile;
+
+
+	private PenguDir direction = PenguDir.IDLE;
+	private bool isCaryingIce = false;
 
 	void Start() {
 
@@ -26,34 +40,81 @@ public class Pengu : MonoBehaviour {
 		var down = Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow);
 
 		if (right) {
-			direction = PenguDirection.RIGHT;
+			direction = PenguDir.RIGHT;
 			anim.SetTrigger("IsRight");
 		}
 
 		if (left) {
-			direction = PenguDirection.LEFT;
+			direction = PenguDir.LEFT;
 			anim.SetTrigger("IsLeft");
 		}
 
 		if (up) {
-			direction = PenguDirection.UP;
+			direction = PenguDir.UP;
 			anim.SetTrigger("IsUp");
 		}
 
 		if (down) {
-			direction = PenguDirection.DOWN;
+			direction = PenguDir.DOWN;
 			anim.SetTrigger("IsDown");
 		}
 
-		if (
-			(input == Vector2.zero)
-				&& direction != PenguDirection.IDLE
-		) {
-			Debug.Log("wuwuw");
-			direction = PenguDirection.IDLE;
+		if (input == Vector2.zero && direction != PenguDir.IDLE) {
+			direction = PenguDir.IDLE;
 
 			anim.SetTrigger("IsIdle");
 		}
 
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			TryHoistOrPlaceIceBlock();
+		}
+
+	}
+
+	private void TryHoistOrPlaceIceBlock() {
+		if (isCaryingIce) {
+			// audioManager.PlaySound(Sound.INVALID_ACTION);
+			TryPlaceIceBlock();
+		} else {
+			TryHoistIceBlock();
+		}
+	}
+
+	private void TryHoistIceBlock() {
+		var tilesInFront = GetTilesInFront();
+		Debug.Log(tilesInFront[1].name);
+		if (tilesInFront[1].name.Contains("ice")) {
+			isCaryingIce = true;
+			headIceBlock.SetActive(true);
+			iceMap.SetTile(GetTileInFrontPos(), null);
+		} else {
+			audioManager.PlaySound(Sound.INVALID_ACTION);
+		}
+	}
+
+	private void TryPlaceIceBlock() {
+		var tilesInFront = GetTilesInFront();
+		if (tilesInFront[1] == null) {
+			isCaryingIce = false;
+			headIceBlock.SetActive(false);
+			iceMap.SetTile(GetTileInFrontPos(), iceTile);
+		} else {
+			audioManager.PlaySound(Sound.INVALID_ACTION);
+		}
+	}
+
+	private Vector3Int GetTileInFrontPos() {
+		Vector3Int tileInFront = iceMap.WorldToCell(transform.position);
+		if (direction == PenguDir.LEFT) { tileInFront += Vector3Int.left; }
+		if (direction == PenguDir.RIGHT) { tileInFront += Vector3Int.right; }
+		if (direction == PenguDir.UP) { tileInFront += Vector3Int.up; }
+		if (direction == PenguDir.DOWN) { tileInFront += Vector3Int.down; }
+
+		return tileInFront;
+	}
+
+	private List<TileBase> GetTilesInFront() {
+		var tileInFrontPos = GetTileInFrontPos();
+		return new List<TileBase>() { iceMap.GetTile(tileInFrontPos), waterMap.GetTile(tileInFrontPos), collisionMap.GetTile(tileInFrontPos) };
 	}
 }

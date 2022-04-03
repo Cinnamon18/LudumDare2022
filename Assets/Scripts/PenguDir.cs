@@ -1,4 +1,4 @@
-public enum PenguDirection {
+public enum PenguDir {
 	UP,
 	DOWN,
 	LEFT,
