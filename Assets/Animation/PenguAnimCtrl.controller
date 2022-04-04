@@ -109,7 +109,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguWalkUp
-  m_Speed: 0.35
+  m_Speed: 0.111
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -210,7 +210,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguIdleUp
-  m_Speed: 0.0875
+  m_Speed: 0.02775
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -312,7 +312,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguWalkDown
-  m_Speed: 0.35
+  m_Speed: 0.111
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -338,7 +338,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguPerish
-  m_Speed: 0.0875
+  m_Speed: 0.02775
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -364,7 +364,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguWalkRight
-  m_Speed: 0.35
+  m_Speed: 0.111
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -440,7 +440,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguIdleRight
-  m_Speed: 0.0875
+  m_Speed: 0.02775
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -466,7 +466,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguIdleDown
-  m_Speed: 0.0875
+  m_Speed: 0.02775
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -612,7 +612,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguWalkLeft
-  m_Speed: 0.35
+  m_Speed: 0.111
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -688,7 +688,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguIdleLeft
-  m_Speed: 0.0875
+  m_Speed: 0.02775
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []

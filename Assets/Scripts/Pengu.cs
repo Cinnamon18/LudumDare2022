@@ -102,8 +102,7 @@ public class Pengu : MonoBehaviour {
 			// Game over
 			Debug.Log("You lose :(");
 			// Time.timeScale = 0;
-			//SceneManager.LoadScene(0);
-			popupText.text = popupText.text + " " + timeSurvived + "s";
+			popupText.text = popupText.text + " " +string.Format("{0:F1}", timeSurvived) + "s";
 			popUp.gameObject.SetActive(true);
 		}
 	}
