@@ -7,12 +7,11 @@ public class TileManager : MonoBehaviour {
 
 	[SerializeField] private float timeBetweenTileCracks = 5f;
 	[SerializeField] private float percentDecreaseAfterCracks = 0.95f;
-
 	[SerializeField] private Pengu pengu;
 
 	[Header("Melting")]
-	[SerializeField] private float timeForTileToCrackPerFrame = 0.2f;
-	[SerializeField] private List<TileBase> meltTiles;
+	[SerializeField] private AnimatedTile meltTileIce;
+	[SerializeField] private AnimatedTile meltTileBorder;
 
 	[Header("Tilemaps")]
 	[SerializeField] private Tilemap iceMap;
@@ -46,10 +45,10 @@ public class TileManager : MonoBehaviour {
 		// Let player walk on the crumbling tile until its fully crumbled!
 		collisionMap.SetTile(tilePos, null);
 
-		foreach (var meltTile in meltTiles) {
-			iceMap.SetTile(tilePos, meltTile);
-			yield return new WaitForSeconds(timeForTileToCrackPerFrame);
-		}
+		iceMap.SetTile(tilePos, meltTileIce);
+		borderMap.SetTile(tilePos + Vector3Int.down, meltTileBorder);
+		yield return new WaitForSeconds(1);
+
 		SetTileNonIcey(tilePos);
 
 		pengu.KillIfOnWater(tilePos);
