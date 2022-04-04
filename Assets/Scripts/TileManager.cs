@@ -54,12 +54,12 @@ public class TileManager : MonoBehaviour {
 			var tileToRipple = GetRandomTile(waterMap);
 			if (waterMap.GetTile<RuleTile>(tileToRipple)?.name == "WaterRuleTile") {
 				waterMap.SetTile(tileToRipple, shallowRippleTile);
-				yield return new WaitForSeconds(1f);
+				yield return new WaitForSeconds(2f);
 				waterMap.SetTile(tileToRipple, shallowRegularTile);
 				waterMap.RefreshTile(tileToRipple);
 			} else if (waterMap.GetTile<RuleTile>(tileToRipple)?.name == "DeepWaterRuleTile") {
 				waterMap.SetTile(tileToRipple, deepRippleTile);
-				yield return new WaitForSeconds(1f);
+				yield return new WaitForSeconds(2f);
 				waterMap.SetTile(tileToRipple, deepRegularTile);
 				waterMap.RefreshTile(tileToRipple);
 			} else {
