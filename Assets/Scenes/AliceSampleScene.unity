@@ -12131,7 +12131,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1600, y: 900}
+  m_ReferenceResolution: {x: 1024, y: 576}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -26106,8 +26106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f3d4888252e6844a2478fa8e635ac5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenTileCracks: 3.85
-  percentDecreaseAfterCracks: 0.96
+  timeBetweenTileCracks: 2
+  percentDecreaseAfterCracks: 0.98
   pengu: {fileID: 426989624}
   iceBreakSound: {fileID: 8300000, guid: 0c2db36d646808a418e48405c98e9cc7, type: 3}
   secondsToMelt: 1.5
@@ -29909,7 +29909,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1600, y: 900}
+  m_ReferenceResolution: {x: 1024, y: 576}
   m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
