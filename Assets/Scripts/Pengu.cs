@@ -39,33 +39,37 @@ public class Pengu : MonoBehaviour {
 		var input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 		this.rigidbody.velocity = speed * input;
 
-		var right = Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow);
-		var left = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow);
-		var up = Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
-		var down = Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow);
+		var rightPressed = Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow);
+		var leftPressed = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow);
+		var upPressed = Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
+		var downPressed = Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow);
+		var rightDown = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
+		var leftDown = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+		var upDown = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+		var downDown = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 
-		if (right) {
+		if (rightPressed) {
 			direction = PenguDir.RIGHT;
 			anim.SetTrigger("IsRight");
 		}
 
-		if (left) {
+		if (leftPressed) {
 			direction = PenguDir.LEFT;
 			anim.SetTrigger("IsLeft");
 		}
 
-		if (up) {
+		if (upPressed) {
 			direction = PenguDir.UP;
 			anim.SetTrigger("IsUp");
 		}
 
-		if (down) {
+		if (downPressed) {
 			direction = PenguDir.DOWN;
 			anim.SetTrigger("IsDown");
 		}
 
-		if (!(right || left || up || down)) {
-			switch(direction) {
+		if (!(rightDown || leftDown || upDown || downDown)) {
+			switch (direction) {
 				case PenguDir.RIGHT:
 					direction = PenguDir.IDLE_RIGHT;
 					anim.SetTrigger("IsIdleRight");
@@ -92,8 +96,8 @@ public class Pengu : MonoBehaviour {
 		timeSurvived += Time.deltaTime;
 	}
 
-	public void KillIfOnWater() {
-		if (iceMap.GetTile<TileBase>(iceMap.WorldToCell(transform.position)) == null && popUp.gameObject.activeSelf == false) {
+	public void KillIfOnWater(Vector3Int tilePos) {
+		if (iceMap.WorldToCell(transform.position) == tilePos && popUp.gameObject.activeSelf == false) {
 			anim.SetTrigger("IsPerish");
 			// Game over
 			Debug.Log("You lose :(");

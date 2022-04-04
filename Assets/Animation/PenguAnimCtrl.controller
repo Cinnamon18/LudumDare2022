@@ -109,7 +109,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguWalkUp
-  m_Speed: 0.2
+  m_Speed: 0.35
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -210,7 +210,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguIdleUp
-  m_Speed: 1
+  m_Speed: 0.0875
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -242,55 +242,55 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsDown
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsLeft
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsRight
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsIdleUp
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsIdleDown
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsIdleLeft
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsIdleRight
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IsPerish
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -312,7 +312,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguWalkDown
-  m_Speed: 0.2
+  m_Speed: 0.35
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -338,7 +338,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguPerish
-  m_Speed: 1
+  m_Speed: 0.0875
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -364,7 +364,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguWalkRight
-  m_Speed: 0.2
+  m_Speed: 0.35
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -440,7 +440,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguIdleRight
-  m_Speed: 1
+  m_Speed: 0.0875
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -466,7 +466,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguIdleDown
-  m_Speed: 1
+  m_Speed: 0.0875
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -612,7 +612,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguWalkLeft
-  m_Speed: 0.2
+  m_Speed: 0.35
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -688,7 +688,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PenguIdleLeft
-  m_Speed: 1
+  m_Speed: 0.0875
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []

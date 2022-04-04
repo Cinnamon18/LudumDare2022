@@ -43,15 +43,16 @@ public class TileManager : MonoBehaviour {
 
 	public IEnumerator MeltTile(Vector3Int tilePos) {
 		SetTileNonIcey(tilePos);
-		// iceMap.SetTile(tilePos, null);
-		// borderMap.SetTile(tilePos, shallowBorderTile);
+		// Let player walk on the crumbling tile until its fully crumbled!
+		collisionMap.SetTile(tilePos, null);
+
 		foreach (var meltTile in meltTiles) {
-			waterMap.SetTile(tilePos, meltTile);
+			iceMap.SetTile(tilePos, meltTile);
 			yield return new WaitForSeconds(timeForTileToCrackPerFrame);
 		}
 		SetTileNonIcey(tilePos);
 
-		pengu.KillIfOnWater();
+		pengu.KillIfOnWater(tilePos);
 	}
 
 	public Vector3Int GetRandomIceTile() {
