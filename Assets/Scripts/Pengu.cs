@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Audio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,7 +8,6 @@ using UnityEngine.Tilemaps;
 public class Pengu : MonoBehaviour {
 
 	[SerializeField] private Animator anim;
-	[SerializeField] private AudioManager audioManager;
 	[SerializeField] private TileManager tileManager;
 	[SerializeField] private Canvas popUp;
 	[SerializeField] private TMP_Text popupText;
@@ -27,13 +25,12 @@ public class Pengu : MonoBehaviour {
 	[SerializeField] private Tilemap waterMap;
 	[SerializeField] private Tilemap collisionMap;
 
+	public bool isDead = false;
+
 	private PenguDir direction = PenguDir.IDLE_DOWN;
 	private bool isCaryingIce = false;
 	private float timeSurvived = 0;
-	private bool isDead = false;
 	AudioSource squeak;
-
-
 
 	void Start() {
 		squeak = this.GetComponent<AudioSource>();
@@ -47,6 +44,7 @@ public class Pengu : MonoBehaviour {
 		}
 
 		var input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		input.Normalize();
 		this.rigidbody.velocity = speed * input;
 
 		var rightPressed = Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow);
@@ -57,6 +55,9 @@ public class Pengu : MonoBehaviour {
 		var leftDown = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
 		var upDown = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
 		var downDown = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+
+		squeak.pitch = Random.Range(0.9f, 1.1f);
+		squeak.volume = Random.Range(0.1f, 0.2f);
 
 		if (rightPressed) {
 			direction = PenguDir.RIGHT;
@@ -128,7 +129,6 @@ public class Pengu : MonoBehaviour {
 
 	private void TryHoistOrPlaceIceBlock() {
 		if (isCaryingIce) {
-			// audioManager.PlaySound(Sound.INVALID_ACTION);
 			TryPlaceIceBlock();
 		} else {
 			TryHoistIceBlock();
@@ -143,7 +143,6 @@ public class Pengu : MonoBehaviour {
 
 			tileManager.SetTileNonIcey(GetTileInFrontPos());
 		} else {
-			audioManager.PlaySound(Sound.INVALID_ACTION);
 		}
 	}
 
@@ -155,7 +154,6 @@ public class Pengu : MonoBehaviour {
 
 			tileManager.SetTileIcey(GetTileInFrontPos());
 		} else {
-			audioManager.PlaySound(Sound.INVALID_ACTION);
 		}
 	}
 

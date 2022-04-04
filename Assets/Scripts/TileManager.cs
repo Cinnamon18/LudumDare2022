@@ -8,7 +8,7 @@ public class TileManager : MonoBehaviour {
 	[SerializeField] private float timeBetweenTileCracks = 5f;
 	[SerializeField] private float percentDecreaseAfterCracks = 0.95f;
 	[SerializeField] private Pengu pengu;
-	[SerializeField] private AudioSource audioSource;
+	[SerializeField] private AudioClip iceBreakSound;
 
 	[Header("Melting")]
 	[SerializeField] private float secondsToMelt = 1f;
@@ -30,6 +30,7 @@ public class TileManager : MonoBehaviour {
 	[SerializeField] private TileBase deepRippleTile;
 
 	private float meltTimer = 0;
+	private List<AudioSource> audioSources = new List<AudioSource>();
 
 	void Start() {
 		meltTimer = timeBetweenTileCracks;
@@ -42,7 +43,7 @@ public class TileManager : MonoBehaviour {
 	void Update() {
 		meltTimer -= Time.deltaTime;
 
-		if (meltTimer < 0) {
+		if (meltTimer < 0 && !pengu.isDead) {
 			timeBetweenTileCracks *= percentDecreaseAfterCracks;
 			meltTimer = timeBetweenTileCracks;
 
@@ -50,17 +51,33 @@ public class TileManager : MonoBehaviour {
 		}
 	}
 
+	private void playIceBreakSoundEffect() {
+		AudioSource freeAudioSource = audioSources.Find(anAudioSource => anAudioSource.isPlaying == false);
+		if (freeAudioSource == null) {
+			freeAudioSource = gameObject.AddComponent<AudioSource>();
+			freeAudioSource.pitch = Random.Range(0.8f, 1.05f);
+			freeAudioSource.volume = Random.Range(0.15f, 0.25f);
+			freeAudioSource.clip = iceBreakSound;
+			audioSources.Add(freeAudioSource);
+		}
+		freeAudioSource.Play(0);
+	}
+
 	public IEnumerator MakeRipples() {
 		while (true) {
 			var tileToRipple = GetRandomTile(waterMap);
 			if (waterMap.GetTile<RuleTile>(tileToRipple)?.name == "WaterRuleTile") {
+				Debug.Log("Rippling water tile!");
 				waterMap.SetTile(tileToRipple, shallowRippleTile);
-				yield return new WaitForSeconds(2f);
+				waterMap.RefreshTile(tileToRipple);
+				yield return new WaitForSeconds(3f);
 				waterMap.SetTile(tileToRipple, shallowRegularTile);
 				waterMap.RefreshTile(tileToRipple);
 			} else if (waterMap.GetTile<RuleTile>(tileToRipple)?.name == "DeepWaterRuleTile") {
+				Debug.Log("rippling deep tile!");
 				waterMap.SetTile(tileToRipple, deepRippleTile);
-				yield return new WaitForSeconds(2f);
+				waterMap.RefreshTile(tileToRipple);
+				yield return new WaitForSeconds(3f);
 				waterMap.SetTile(tileToRipple, deepRegularTile);
 				waterMap.RefreshTile(tileToRipple);
 			} else {
@@ -74,8 +91,8 @@ public class TileManager : MonoBehaviour {
 		SetTileNonIcey(tilePos);
 		// Let player walk on the crumbling tile until its fully crumbled!
 		collisionMap.SetTile(tilePos, null);
-		audioSource.Play(0);
 
+		playIceBreakSoundEffect();
 
 		for (int i = 0; i < meltIceTiles.Count; i++) {
 			iceMap.SetTile(tilePos, meltIceTiles[i]);
@@ -93,7 +110,7 @@ public class TileManager : MonoBehaviour {
 
 		foreach (var pos in tileMap.cellBounds.allPositionsWithin) {
 			Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
-			if (tileMap.HasTile(localPlace)) {
+			if (tileMap.HasTile(localPlace) && !meltIceTiles.Contains(tileMap.GetTile<Tile>(localPlace))) {
 				localTilePoses.Add(localPlace);
 			}
 		}
