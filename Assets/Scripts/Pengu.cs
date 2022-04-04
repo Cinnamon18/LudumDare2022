@@ -20,6 +20,7 @@ public class Pengu : MonoBehaviour
     [Header("My monos")]
     [SerializeField] private Rigidbody2D rigidbody;
     [SerializeField] private GameObject headIceBlock;
+    [SerializeField] private BoxCollider2D boxCollider;
 
     [Header("Tilemaps")]
     [SerializeField] private Tilemap iceMap;
@@ -30,7 +31,7 @@ public class Pengu : MonoBehaviour
     private PenguDir direction = PenguDir.IDLE_DOWN;
     private bool isCaryingIce = false;
     private float timeSurvived = 0;
-
+    private bool isDead = false;
     AudioSource squeak;
     void Start()
     {
@@ -40,6 +41,11 @@ public class Pengu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         var input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         this.rigidbody.velocity = speed * input;
 
@@ -118,9 +124,11 @@ public class Pengu : MonoBehaviour
             anim.SetTrigger("IsPerish");
             // Game over
             Debug.Log("You lose :(");
-            // Time.timeScale = 0;
+            collisionMap.SetTile(tilePos, null);
+            boxCollider.enabled = false;
             popupText.text = popupText.text + " " + string.Format("{0:F1}", timeSurvived) + "s";
             popUp.gameObject.SetActive(true);
+            isDead = true;
         }
     }
 

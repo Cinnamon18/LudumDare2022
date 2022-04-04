@@ -5341,9 +5341,8 @@ MonoBehaviour:
   timeBetweenTileCracks: 7
   percentDecreaseAfterCracks: 0.95
   pengu: {fileID: 426989624}
-  timeForTileToCrackPerFrame: 1.25
-  meltTiles:
-  - {fileID: 11400000, guid: bc8d00bab030d364c84c1c1a01922782, type: 2}
+  meltTileIce: {fileID: 11400000, guid: 78a43e6b8532e194b80cc89f1b496137, type: 2}
+  meltTileBorder: {fileID: 11400000, guid: 1a9592874c0f7844299dcbcd267c6239, type: 2}
   iceMap: {fileID: 1886477812}
   borderMap: {fileID: 2049313579}
   waterMap: {fileID: 647683503}
@@ -5680,7 +5679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You managed to survive for: '
+  m_text: 'You managed to survive for:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9220,7 +9219,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1600, y: 900}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -9275,37 +9274,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 254898816, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1597039525456482460, guid: 80c0085ac4133cb4ba8490199646dfd7, type: 3}
-    - target: {fileID: 254898816, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
-      propertyPath: m_Color.b
-      value: 1
+    - target: {fileID: 1856466654, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
+      propertyPath: orthographic size
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 254898816, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
-      propertyPath: m_Color.g
-      value: 1
+    - target: {fileID: 1856466655, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 254898816, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+    - target: {fileID: 1856466655, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2108543512, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -7548258261038696754, guid: 80c0085ac4133cb4ba8490199646dfd7, type: 3}
     - target: {fileID: 268868109509879546, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 268868109509879546, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: -0.78
       objectReference: {fileID: 0}
     - target: {fileID: 268868109509879546, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.09
       objectReference: {fileID: 0}
     - target: {fileID: 268868109509879546, guid: e3c9604b882e5e64ebba19b344b37b55, type: 3}
       propertyPath: m_LocalPosition.z
