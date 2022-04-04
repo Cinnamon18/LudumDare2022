@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/AliceSampleScene.unity
-    guid: a76a103df4f39214db726f2133471099
-  - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 8205cfe5a2a7e6e4ba1542768577b249
+  - enabled: 1
+    path: Assets/Scenes/AliceSampleScene.unity
+    guid: a76a103df4f39214db726f2133471099
   m_configObjects: {}
