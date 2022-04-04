@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: RippleDeepTile
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -6666837179964458503, guid: 0260ca11794c20d4893039068c2711d3, type: 3}
+  - {fileID: 8311497924602342071, guid: 8a489203463b37f4a810659d68f772d4, type: 3}
+  - {fileID: -8873754919812724856, guid: 8a489203463b37f4a810659d68f772d4, type: 3}
+  - {fileID: -8873754919812724856, guid: 8a489203463b37f4a810659d68f772d4, type: 3}
+  - {fileID: -2586147584028532038, guid: 8a489203463b37f4a810659d68f772d4, type: 3}
+  - {fileID: 3946997959108648221, guid: 8a489203463b37f4a810659d68f772d4, type: 3}
+  - {fileID: 114559633885960943, guid: 8a489203463b37f4a810659d68f772d4, type: 3}
+  - {fileID: 7914076384335439714, guid: 8a489203463b37f4a810659d68f772d4, type: 3}
+  m_MinSpeed: 7
+  m_MaxSpeed: 7
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0

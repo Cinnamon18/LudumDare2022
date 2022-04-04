@@ -112,6 +112,7 @@ public class Pengu : MonoBehaviour {
 			popupText.text = popupText.text + " " +string.Format("{0:F1}", timeSurvived) + "s";
 			popUp.gameObject.SetActive(true);
 			isDead = true;
+			GetComponent<Rigidbody2D>().simulated = false;
 		}
 	}
 
