@@ -31,14 +31,18 @@ public class Pengu : MonoBehaviour {
 	private bool isCaryingIce = false;
 	private float timeSurvived = 0;
 	private bool isDead = false;
+	AudioSource squeak;
+
+
 
 	void Start() {
+		squeak = this.GetComponent<AudioSource>();
 
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if(isDead) {
+		if (isDead) {
 			return;
 		}
 
@@ -57,21 +61,27 @@ public class Pengu : MonoBehaviour {
 		if (rightPressed) {
 			direction = PenguDir.RIGHT;
 			anim.SetTrigger("IsRight");
+			squeak.Play(0);
 		}
 
 		if (leftPressed) {
 			direction = PenguDir.LEFT;
 			anim.SetTrigger("IsLeft");
+			squeak.Play(0);
+
 		}
 
 		if (upPressed) {
 			direction = PenguDir.UP;
 			anim.SetTrigger("IsUp");
+			squeak.Play(0);
+
 		}
 
 		if (downPressed) {
 			direction = PenguDir.DOWN;
 			anim.SetTrigger("IsDown");
+			squeak.Play(0);
 		}
 
 		if (!(rightDown || leftDown || upDown || downDown)) {
@@ -109,7 +119,7 @@ public class Pengu : MonoBehaviour {
 			Debug.Log("You lose :(");
 			collisionMap.SetTile(tilePos, null);
 			boxCollider.enabled = false;
-			popupText.text = popupText.text + " " +string.Format("{0:F1}", timeSurvived) + "s";
+			popupText.text = popupText.text + " " + string.Format("{0:F1}", timeSurvived) + "s";
 			popUp.gameObject.SetActive(true);
 			isDead = true;
 			GetComponent<Rigidbody2D>().simulated = false;

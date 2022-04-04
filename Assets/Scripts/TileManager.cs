@@ -8,6 +8,7 @@ public class TileManager : MonoBehaviour {
 	[SerializeField] private float timeBetweenTileCracks = 5f;
 	[SerializeField] private float percentDecreaseAfterCracks = 0.95f;
 	[SerializeField] private Pengu pengu;
+	[SerializeField] private AudioSource audioSource;
 
 	[Header("Melting")]
 	[SerializeField] private float secondsToMelt = 1f;
@@ -73,13 +74,15 @@ public class TileManager : MonoBehaviour {
 		SetTileNonIcey(tilePos);
 		// Let player walk on the crumbling tile until its fully crumbled!
 		collisionMap.SetTile(tilePos, null);
+		audioSource.Play(0);
+
 
 		for (int i = 0; i < meltIceTiles.Count; i++) {
 			iceMap.SetTile(tilePos, meltIceTiles[i]);
 			borderMap.SetTile(tilePos + Vector3Int.down, meltBorderTiles[i]);
 			yield return new WaitForSeconds(secondsToMelt / meltIceTiles.Count);
 		}
-		
+
 		SetTileNonIcey(tilePos);
 
 		pengu.KillIfOnWater(tilePos);
